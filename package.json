@@ -32,6 +32,7 @@
     ]
   },
   "devDependencies": {
-    "evergreen-ui": "^4.27.4"
+    "evergreen-ui": "^4.27.4",
+    "react-bootstrap": "^1.0.1"
   }
 }
