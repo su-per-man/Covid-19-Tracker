@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Text, Heading } from 'evergreen-ui'
+import { Card, Text, Heading, TextInputField, Autocomplete, TextInput } from 'evergreen-ui'
 import { Modal } from './components/Modal'
 import { Theme } from './components/Theme'
 import { InfoTileData } from './components/InfoTileData'
@@ -40,7 +40,34 @@ function App() {
           </Col>
           <Col md={6}>
             <Card elevation={2} padding={24}>
+              <Row>
+                <TextInputField width="100%" label="Browse" placeholder="Filter to a location" />
 
+                <Autocomplete
+                  title="Fruits"
+                  onChange={changedItem => console.log(changedItem)}
+                  items={['Apple', 'Apricot', 'Banana', 'Cherry', 'Cucumber']}
+                >
+                  {(props) => {
+                    const { getInputProps, getRef, inputValue, openMenu } = props
+                    return (
+                      <TextInput
+                        placeholder="Open on focus"
+                        value={inputValue}
+                        ref={getRef}
+                        {
+                          ...getInputProps({
+                          onFocus: () => {
+                            openMenu()
+                          }
+                        })}
+                      />
+                    )
+                  }}
+                </Autocomplete>
+
+
+              </Row>
             </Card>
           </Col>
         </Row>
